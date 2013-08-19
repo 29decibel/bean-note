@@ -1,0 +1,24 @@
+{
+  "name": "bean-note",
+  "version": "0.0.0",
+  "description": "simple note app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.org/29decibel/bean-note.git"
+  },
+  "keywords": [
+    "note",
+    "bean"
+  ],
+  "author": "mike li",
+  "license": "BSD",
+  "readmeFilename": "Readme.md",
+  "gitHead": "123c3f1bc50b871b9f40fdf7e9016f0ed367fdb2",
+  "devDependencies": {
+    "mocha": "~1.12.0"
+  }
+}
