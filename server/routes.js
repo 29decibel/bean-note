@@ -2,7 +2,7 @@ var inflection = require( 'inflection' ),
     mongoose = require('mongoose');
 
 
-function resources (app, resourceName) {
+function resources (app, resourceName, namespace) {
 
   var singularizeName = inflection.singularize(resourceName),
       modelName = inflection.camelize(singularizeName),

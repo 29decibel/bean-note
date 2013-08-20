@@ -18,41 +18,79 @@
     <link rel="stylesheet" href="./stylesheets/stylesheet.css">
   </head>
   <body ng-app="app">
-    <div id="wysihtml5-editor-toolbar">
-      <header>
-        <ul class="commands">
-          <li data-wysihtml5-command="bold" title="Make text bold (CTRL + B)" class="command"></li>
-          <li data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" class="command"></li>
-          <li data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" class="command"></li>
-          <li data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" class="command"></li>
-          <li data-wysihtml5-command="createLink" title="Insert a link" class="command"></li>
-          <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command"></li>
-          <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command"></li>
-          <li data-wysihtml5-action="change_view" title="Show HTML" class="action"></li>
-        </ul>
-      </header>
-      <div data-wysihtml5-dialog="createLink" style="display: none;">
-        <label>
-          Link:
-          <input data-wysihtml5-dialog-field="href" value="http://">
-        </label>
-        <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
-      </div>
+    <div id='notes-list' class='notes-list'>
+      <ul>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+        <li>Note one</li>
+      </ul>
+    </div>
 
-      <div data-wysihtml5-dialog="insertImage" style="display: none;">
-        <label>
-          Image:
-          <input data-wysihtml5-dialog-field="src" value="http://">
-        </label>
-        <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+    <div class='note'>
+
+
+      <div class='note-editor'>
+        <div id="wysihtml5-editor-toolbar">
+          <header>
+            <ul class="commands">
+              <li data-wysihtml5-command="bold" title="Make text bold (CTRL + B)" class="command"></li>
+              <li data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" class="command"></li>
+              <li data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" class="command"></li>
+              <li data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" class="command"></li>
+              <li data-wysihtml5-command="createLink" title="Insert a link" class="command"></li>
+              <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command"></li>
+              <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command"></li>
+            </ul>
+          </header>
+          <div data-wysihtml5-dialog="createLink" style="display: none;">
+            <label>
+              Link:
+              <input data-wysihtml5-dialog-field="href" value="http://">
+            </label>
+            <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+          </div>
+
+        </div>
+
+        <textarea ng-model="contents" name='table-contents' id="wysihtml5-editor" spellcheck="false" wrap="off" autofocus placeholder="Paste the table contents here ...">
+        </textarea>
       </div>
     </div>
 
-    <section>
-      <input class='large-input' name='title' ng-model="title" placeholder="Your Awesome Book Name"></input>
-      <textarea ng-model="contents" name='table-contents' id="wysihtml5-editor" spellcheck="false" wrap="off" autofocus placeholder="Paste the table contents here ...">
-      </textarea>
-    </section>
     <script src="./javascripts/app.js" ></script>
   </body>
 </html>
