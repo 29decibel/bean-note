@@ -1,5 +1,6 @@
 var configs = require('../config/application'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    env = process.env['ENV'] || "development";
 
 // connect the mongodb
-mongoose.connect(configs["development"]["mongodb-connection"]);
+mongoose.connect(configs[env]["mongodb-connection"]);
