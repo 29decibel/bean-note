@@ -3,6 +3,8 @@ var mongoose = require("mongoose"),
     noteSchema,
     Note;
 
+// TODO delegate this to another object
+// to enable the model has CRUD methods
 noteSchema = new Schema({
   content: {type: String },
   format: {type: String, default: 'html'},

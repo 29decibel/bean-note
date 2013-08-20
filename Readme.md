@@ -16,3 +16,6 @@ that's why I want to build another open source notes service
 * simple interface
 * open standard notes format
 * offline support
+
+## Features List
+* Chrome plugin
