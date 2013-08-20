@@ -30,11 +30,20 @@ describe('Note', function() {
     note.set('content', content);
     note.save( function (err) {
       // retrive it back to see
-      note2 = Note.findOne({}, function (err, note) {
+      note2 = Note.findOne({_id: note._id }, function (err, note) {
         assert.equal(note.content, content);
-        done();
+
+        // test delete
+        Note.remove({_id: note._id }, function (err) {
+          Note.findOne({_id: note._id }, function (err, note) {
+            assert.equal(note, null);
+            done();
+          })
+        })
       });
     });
 
   });
+
+
 });
