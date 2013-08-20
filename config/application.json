@@ -1,0 +1,11 @@
+{
+  "development":{
+    "mongodb-connection": "mongodb://localhost/bean-note-development"
+  },
+  "test": {
+    "mongodb-connection": "mongodb://localhost/bean-note-test"
+  },
+  "production": {
+    "mongodb-connection": "mongodb://localhost/bean-note-production"
+  }
+}

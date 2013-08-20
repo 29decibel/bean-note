@@ -19,6 +19,10 @@
   "readmeFilename": "Readme.md",
   "gitHead": "123c3f1bc50b871b9f40fdf7e9016f0ed367fdb2",
   "devDependencies": {
-    "mocha": "~1.12.0"
+    "mocha": "~1.12.0",
+    "chai": "~1.7.2"
+  },
+  "dependencies": {
+    "mongoose": "~3.6.17"
   }
 }
