@@ -1,11 +1,19 @@
 {
   "development":{
-    "mongodb-connection": "mongodb://localhost/bean-note-development"
+    "mongodb-connection": "mongodb://localhost/bean-note-development",
+    "username": "mike",
+    "password": "123"
   },
+
   "test": {
-    "mongodb-connection": "mongodb://localhost/bean-note-test"
+    "mongodb-connection": "mongodb://localhost/bean-note-test",
+    "username": "mike",
+    "password": "123"
   },
+
   "production": {
-    "mongodb-connection": "mongodb://localhost/bean-note-production"
+    "mongodb-connection": "mongodb://localhost/bean-note-production",
+    "username": "mike",
+    "password": "123"
   }
 }
