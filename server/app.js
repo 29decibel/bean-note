@@ -3,7 +3,8 @@ var express = require('express'),
     configs = require('../config/application')[env],
     app = express(),
     Note = require('./models/note'),
-    routes = require('./routes');
+    routes = require('./routes'),
+    port = process.env.PORT || 3000;
 
 // set up the connection
 require('../initializers/mongodb_connection');
@@ -30,4 +31,4 @@ app.get('/', function (req, res) {
 });
 
 console.log("Listen port 3000");
-app.listen(3000);
+app.listen(port);
