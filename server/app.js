@@ -30,5 +30,6 @@ app.get('/', function (req, res) {
   res.status(200).sendfile("./public/index.html");
 });
 
-console.log("Listen port 3000");
-app.listen(port);
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
