@@ -129,7 +129,9 @@ app.controller("Main", function ($scope, $q, $http) {
   };
 
   $scope.deleteNote = function (note) {
-    deleteNote(note);
+    if (confirm("are your sure want to delete this note?\n" + note.excerpt) === true) {
+      deleteNote(note);
+    }
   };
 
 });
