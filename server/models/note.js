@@ -6,10 +6,12 @@ var mongoose = require("mongoose"),
 // TODO delegate this to another object
 // to enable the model has CRUD methods
 noteSchema = new Schema({
-  content: {type: String },
-  format: {type: String, default: 'html'},
-  encryped: {type: Boolean , default: false},
-  excerpt: { type: String }
+  content:   { type: String },
+  format:    { type: String, default: 'html'},
+  encryped:  { type: Boolean , default: false},
+  excerpt:   { type: String },
+  createdAt: { type: Date ,default: Date.now },
+  updatedAt: { type: Date ,default: Date.now }
 });
 
 
