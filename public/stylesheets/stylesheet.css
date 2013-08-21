@@ -20,6 +20,41 @@ body, textarea, input {
   bottom:0px;
 }
 
+button{
+  background:#bdc3c7;
+  color:#ffffff;
+  text-decoration: none;
+  border:none;
+  width:200px;
+  margin:20px;
+  padding:8px 10px;
+  cursor:pointer;
+}
+
+button:hover{
+  background-color:#cacfd2;
+  -webkit-transition:0.25s;
+  transition:0.25s;
+}
+
+.icon-button{
+  font-size:20px;
+  text-decoration:none;
+}
+
+.delete-note{
+  position:absolute;
+  color:#ccc;
+  right:10px;
+  top:20px;
+  display:none;
+}
+.new-note{
+  position:absolute;
+  top:0px;
+  left:20px;
+}
+
 .note-editor{
   padding-left:30px;
   padding-right:30px;
@@ -34,13 +69,14 @@ body, textarea, input {
   bottom:0px;
   top:0px;
   width:25%;
-  overflow:scroll;
   font-color:#ccc;
 }
 
 .notes-list ul{
   position:relative;
   overflow:auto;
+  height:100%;
+  margin-top:80px;
 }
 
 .notes-list li{
@@ -48,8 +84,19 @@ body, textarea, input {
   margin:10px;
   padding:20px;
   font-color:#ccc;
+  height:20px;
+  overflow:hidden;
+  border-left:3px solid white;
+  position:relative;
 }
 
+.notes-list li:hover .delete-note{
+  display:block;
+}
+
+.notes-list li.active{
+  border-left:3px solid #ccc;
+}
 
 .notes-list li:hover{
   background-color:#eee;
@@ -57,25 +104,20 @@ body, textarea, input {
 }
 
 textarea {
-  width: 100%;
   background: transparent;
-  height: 100%;
-  margin-top:70px;
+  position:absolute;
+  top:80px;
+  bottom:0px;
+  left:20px;
+  right:30px;
   border: 0;
   resize: none;
   white-space: pre;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  padding: 10px;
   word-wrap: normal;
   -ms-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  /*
-   *box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
-   *background: rgba(255, 255, 255, 0.4);
-   */
   outline: 0;
 }
 
@@ -84,14 +126,15 @@ textarea {
 
 #wysihtml5-editor-toolbar {
   position: absolute;
+  width:100%;
   top:20px;
   right:20px;
+  text-align:center;
 }
 
 header {
-  display: block;
+  display: inline-block;
   border-radius: 4px;
-  width: 700px;
   background: #f6f6f6;
   position: relative;
   z-index: 1;
@@ -99,6 +142,7 @@ header {
   border: 1px solid #ddd\9; /* IE 8 and below */
   font-size: 0;
   text-align: center;
+  width:500px;
 }
 
 .commands {
@@ -116,71 +160,16 @@ header {
   font-size: 12px;
   display: inline-block;
   cursor: pointer;
-  height: 40px;
-  width: 68px;
+  padding:10px ;
+  height: 15px;
+  width: 20px;
 }
 
-[data-wysihtml5-command]:after,
-[data-wysihtml5-action]:after,
-.fore-color:after {
-  content: "";
-  background-image: url(../images/spr_toolbar_icons_r1.png);
-  background-repeat: no-repeat;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
 
 [data-wysihtml5-command]:hover,
 [data-wysihtml5-action]:hover,
 .fore-color:hover {
   background-color:#eee;
-}
-
-[data-wysihtml5-command="bold"]:after {
-  background-position: 24px center;
-}
-
-[data-wysihtml5-command="italic"]:after {
-  background-position: -48px center;
-}
-
-[data-wysihtml5-command="insertUnorderedList"]:after {
-  background-position: -115px center;
-}
-
-[data-wysihtml5-command="insertOrderedList"]:after {
-  background-position: -197px center;
-}
-
-[data-wysihtml5-command="formatBlock"][data-wysihtml5-command-value="h1"]:after {
-  background-position: -344px center;
-}
-
-[data-wysihtml5-command="formatBlock"][data-wysihtml5-command-value="h2"]:after {
-  background-position: -428px center;
-}
-
-[data-wysihtml5-command="createLink"]:after {
-  background-position: -271px center;
-}
-
-[data-wysihtml5-command="insertImage"]:after {
-  background-position: -513px center;
-}
-
-.fore-color:after {
-  background-position: -741px center;
-}
-
-[data-wysihtml5-command="insertSpeech"]:after {
-  background-position: -596px center;
-}
-
-[data-wysihtml5-action="change_view"]:after {
-  background-position: -670px center;
 }
 
 

@@ -26,6 +26,7 @@
     "mongoose": "~3.6.17",
     "inflection": "~1.2.6",
     "request": "~2.27.0",
-    "express": "~3.3.5"
+    "express": "~3.3.5",
+    "cheerio": "~0.12.1"
   }
 }

@@ -15,48 +15,16 @@
     <![endif]-->
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
+    <link rel="stylesheet" href="./stylesheets/font-awesome.min.css">
     <link rel="stylesheet" href="./stylesheets/stylesheet.css">
   </head>
   <body ng-app="app">
-    <div id='notes-list' class='notes-list'>
+    <div id='notes-list' ng-controller="Main" class='notes-list'>
+      <div class='new-note'><button ng-click="newNote()">New Note</button></div>
       <ul>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
-        <li>Note one</li>
+        <li ng-repeat="note in notes" class='note-excerpt' ng-class="{active: note.active}" ng-click="chooseNote(note)">
+          {{ note.excerpt }}<a href='#' class='icon-button delete-note' ng-click="deleteNote(note)"><i class='icon-trash'></i></a>
+        </li>
       </ul>
     </div>
 
@@ -67,13 +35,13 @@
         <div id="wysihtml5-editor-toolbar">
           <header>
             <ul class="commands">
-              <li data-wysihtml5-command="bold" title="Make text bold (CTRL + B)" class="command"></li>
-              <li data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" class="command"></li>
-              <li data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" class="command"></li>
-              <li data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" class="command"></li>
-              <li data-wysihtml5-command="createLink" title="Insert a link" class="command"></li>
-              <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command"></li>
-              <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command"></li>
+              <li data-wysihtml5-command="bold" title="Make text bold (CTRL + B)" class="command"><i class='icon-bold'></i></li>
+              <li data-wysihtml5-command="italic" title="Make text italic (CTRL + I)" class="command"><i class='icon-italic'></i></li>
+              <li data-wysihtml5-command="insertUnorderedList" title="Insert an unordered list" class="command"><i class='icon-list-ul'></i></li>
+              <li data-wysihtml5-command="insertOrderedList" title="Insert an ordered list" class="command"><i class='icon-list-ol'></i></li>
+              <li data-wysihtml5-command="createLink" title="Insert a link" class="command"><i class='icon-link'></i></li>
+              <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" title="Insert headline 1" class="command">H1</li>
+              <li data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" title="Insert headline 2" class="command">H2</li>
             </ul>
           </header>
           <div data-wysihtml5-dialog="createLink" style="display: none;">

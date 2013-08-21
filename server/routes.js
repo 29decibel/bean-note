@@ -47,11 +47,8 @@ function resources (app, resourceName, namespace) {
    * update one resource
    */
   app.put("/" + resourceName + "/:id", function (req, res) {
-    modelClass.update({_id: req.params.id }, function  (err, doc) {
-      doc.content = req.body.content;
-      doc.save( function (err) {
-        res.send(doc);
-      })
+    modelClass.update({_id: req.params.id }, {content: req.body.content ,excerpt: req.body.excerpt}, function  (err, numberAffected) {
+      res.send({updated: numberAffected});
     });
 
   });
