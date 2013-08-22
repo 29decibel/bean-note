@@ -48,12 +48,16 @@ app.controller("Main", function ($scope, $q, $http) {
   function getTitle (content) {
     var candidates = content.replace(/<\/?[^>]+(>|$)/g, "\n").split("\n"),
         title = "Empty Note",
-        i = 0;
+        i = 0,
+        candidateTitle;
 
     if (candidates.length > 0) {
       while(i < candidates.length){
-        if (candidates[i] !== '' && candidates[i]!== undefined && candidates[i].length > 0) {
-          return candidates[i];
+        if (candidates[i] !== undefined) {
+          candidateTitle = candidates[i].replace(/^\s+|\s+$/g, '');
+          if (candidateTitle !== '' && candidateTitle.length > 0) {
+            return candidateTitle;
+          }
         }
         i += 1;
       }
