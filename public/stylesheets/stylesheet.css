@@ -115,6 +115,7 @@ textarea {
   resize: none;
   white-space: pre;
   word-wrap: normal;
+  color:rgb(51, 51, 50);
   -ms-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
