@@ -58,8 +58,10 @@ button:hover{
 .note-editor{
   padding-left:30px;
   padding-right:30px;
+  padding-top:80px;
   height:100%;
   overflow:hidden;
+  position:relative;
 }
 
 .notes-list{
@@ -73,10 +75,12 @@ button:hover{
 }
 
 .notes-list ul{
-  position:relative;
+  position:absolute;
   overflow:auto;
-  height:100%;
-  margin-top:80px;
+  top:80px;
+  bottom:0;
+  left:0;
+  right:0;
 }
 
 .notes-list li{
@@ -105,11 +109,8 @@ button:hover{
 
 textarea {
   background: transparent;
-  position:absolute;
-  top:80px;
-  bottom:0px;
-  left:20px;
-  right:30px;
+  width:100%;
+  height:100%;
   border: 0;
   resize: none;
   white-space: pre;
