@@ -3,6 +3,8 @@ var chai = require('chai'),
     routes = require("../server/routes"),
     express = require("express");
 
+require('./setup');
+
 var app = express();
 
 describe('api routes', function() {

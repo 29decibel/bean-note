@@ -2,8 +2,7 @@ var chai = require('chai'),
     assert = chai.assert,
     Note = require('../server/models/note');
 
-// setup connection
-require('../initializers/mongodb_connection');
+require('./setup');
 
 describe('Note', function() {
   it('should have a content property', function() {
