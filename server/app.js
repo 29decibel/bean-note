@@ -21,6 +21,12 @@ app.configure(function(){
   app.use(express.static('public'))
 });
 
+// notes search
+app.get('/notes/search', function (req, res) {
+  Note.search(req.query.search, function (notes) {
+    res.send(notes);
+  })
+});
 
 // create routes
 routes.resources(app, 'notes');
@@ -29,6 +35,8 @@ routes.resources(app, 'notes');
 app.get('/', function (req, res) {
   res.status(200).sendfile("./public/index.html");
 });
+
+
 
 app.listen(port, function() {
   console.log("Listening on " + port);

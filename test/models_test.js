@@ -46,4 +46,32 @@ describe('Note', function() {
   });
 
 
+  it('can do the full text search on the notes', function(done) {
+    // create a couple of notes
+    var contents = [
+      ~~ (Math.random() * 100000000),
+      ~~ (Math.random() * 100000000),
+      ~~ (Math.random() * 100000000)
+    ];
+
+    var ready = 0;
+
+    for (var i=0; i < contents.length; i++) {
+      new Note({content: contents[i]}).save( function (err) {
+        ready += 1;
+        if (ready === 3) {
+          // do the search
+          Note.search(contents[1], function (notes) {
+            assert.equal(notes.length, 1);
+            assert.equal(notes[0].obj.content, contents[1]);
+
+            done();
+          });
+        }
+      });
+    };
+
+  });
+
+
 });

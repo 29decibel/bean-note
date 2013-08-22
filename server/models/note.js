@@ -1,7 +1,8 @@
 var mongoose = require("mongoose"),
     Schema = mongoose.Schema,
     noteSchema,
-    Note;
+    Note,
+    textSearch = require("mongoose-text-search");
 
 // TODO delegate this to another object
 // to enable the model has CRUD methods
@@ -16,9 +17,30 @@ noteSchema = new Schema({
 
 
 
+// enable full text searh
+noteSchema.plugin(textSearch);
+
+// build index
+noteSchema.index({
+  content:"text"
+}, {
+  name: "content_index"
+});
+
+
 // make the Note model
 Note = mongoose.model('Note', noteSchema);
 
+Note.search = function (searchText, callback) {
+  // do the search
+  Note.textSearch(searchText.toString(), function (err, output) {
+    if (err) {
+      throw err;
+    } else {
+      callback(output.results);
+    }
+  });
+};
 
 
 module.exports = Note;
