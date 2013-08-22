@@ -9,7 +9,6 @@ body {
 h1, h2 {
   line-height: 1;
   font-family: Rockwell, "Courier New", Courier, Georgia;
-  border-bottom: 1px solid #999;
   font-weight: bold;
   margin: 0 5px 25px 0;
   padding: 0 0 8px;
@@ -58,6 +57,13 @@ ol li {
 li img {
   vertical-align: middle;
   margin: 2px 5px 5px 0;
+}
+
+blockquote{
+  border-left:3px solid rgb(208, 229, 242);
+  padding:5px 15px;
+  margin:10px 0px;
+  line-height: 1.5;
 }
 
 .wysiwyg-color-black {
