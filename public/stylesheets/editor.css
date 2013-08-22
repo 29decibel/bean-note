@@ -1,9 +1,11 @@
 html {
   background: transparent;
+  padding-right:100px;
 }
 
 body {
   margin-bottom: 25px;
+  padding-right:50px;
 }
 
 h1, h2 {
