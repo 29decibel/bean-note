@@ -69,6 +69,14 @@ blockquote{
   line-height: 1.5;
 }
 
+pre {
+  color: #008F6B;
+  margin: 20px 0px;
+  padding: 20px;
+  border-left: 4px solid;
+  font-size: 0.9em;
+}
+
 .wysiwyg-color-black {
   color: black;
 }
