@@ -46,7 +46,7 @@ app.controller("Main", function ($scope, $q, $http) {
   }
 
   function getTitle (content) {
-    var candidates = content.replace(/<\/?[^>]+(>|$)/g, "\n").split("\n"),
+    var candidates = content.replace(/<\/?[^>]+(>|$)/g, "\n").replace("&nbsp;", "").split("\n"),
         title = "Empty Note",
         i = 0,
         candidateTitle;
