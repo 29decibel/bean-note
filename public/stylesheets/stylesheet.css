@@ -171,7 +171,7 @@ header {
 
 [data-wysihtml5-command],
 [data-wysihtml5-action],
-.fore-color {
+.fore-color,.commands li {
   position: relative;
   border-right: 1px solid #ddd;
   border-left: 1px solid #fff;
@@ -186,7 +186,7 @@ header {
 
 
 [data-wysihtml5-command]:hover,
-[data-wysihtml5-action]:hover,
+[data-wysihtml5-action]:hover,.commands li:hover
 .fore-color:hover {
   background-color:#eee;
 }

@@ -62,6 +62,18 @@ li img {
   margin: 2px 5px 5px 0;
 }
 
+span.secret-text{
+  font-size:0.9em;
+  display:inline-block;
+  border:1px solid #ccc;
+  padding:3px 5px;
+  cursor:pointer;
+}
+
+span.secret-text:hover{
+  background-color:#eee;
+}
+
 blockquote{
   border-left:3px solid rgb(208, 229, 242);
   padding:5px 15px;

@@ -5,6 +5,43 @@ Array.prototype.remove = function(from, to) {
         return this.push.apply(this, rest);
 };
 
+wysihtml5.commands.encryptText = {
+  // exec usually behaves like a toggle
+  // if the format is applied then undo it (and vica versa)
+  exec: function(composer, command, param) {
+
+    // undo code here
+    var range = composer.selection.getRange();
+    if (!range) {
+      return false;
+    }
+    var textNodes = range.getNodes([wysihtml5.TEXT_NODE]),
+        el = range.getDocument().createElement("span");
+
+    range.splitBoundaries();
+    textNodes = range.getNodes([wysihtml5.TEXT_NODE]);
+
+    el.textContent = "***SECRETS***";
+    el.className = 'secret-text';
+
+    if (textNodes.length > 0) {
+      var parentNode = textNodes[0].parentNode;
+      parentNode.insertBefore(el, textNodes[0]);
+
+      for (var i=0; i < textNodes.length; i++) {
+        // parentNode.insertBefore(el, textNodes[i]);
+        textNodes[i].remove();
+        // el.appendChild(textNodes[i]);
+      };
+    }
+
+  },
+
+  state: function(composer, command) {
+     return false;
+  }
+};
+
 
 // define a app module
 var app = angular.module('app',[]);
@@ -17,6 +54,7 @@ app.controller("Main", function ($scope, $q, $http) {
       currentNote = null,
       updateTimer = null;
 
+window.e = editor;
 
   $scope.notes = [];
 
@@ -116,6 +154,21 @@ app.controller("Main", function ($scope, $q, $http) {
       }
     }
   }
+
+  function encryptSelectionText () {
+    var composer = editor.composer,
+        range = composer.selection.getRange(),
+        selectedNodes = range.extractContents(),
+        pre = composer.doc.createElement("pre"),
+        code = composer.doc.createElement("code");
+
+    pre.appendChild(code);
+    code.appendChild(selectedNodes);
+    range.insertNode(pre);
+    composer.selection.selectNode(pre);
+  }
+
+  $scope.encryptSelectionText = encryptSelectionText;
 
 
   // load all notes
