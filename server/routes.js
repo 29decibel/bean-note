@@ -12,9 +12,14 @@ function resources (app, resourceName, namespace) {
    * get the list of resources
    */
   app.get("/" + resourceName, function (req, res) {
-    modelClass.find({}, function  (err, docs) {
+    modelClass.find({}).sort({updatedAt: -1}).execFind(function(err, docs){
       res.send(docs);
     });
+    /*
+     *modelClass.find({}, function  (err, docs) {
+     *  res.send(docs);
+     *});
+     */
   });
 
 
@@ -47,7 +52,7 @@ function resources (app, resourceName, namespace) {
    * update one resource
    */
   app.put("/" + resourceName + "/:id", function (req, res) {
-    modelClass.update({_id: req.params.id }, {content: req.body.content ,excerpt: req.body.excerpt}, function  (err, numberAffected) {
+    modelClass.update({_id: req.params.id }, {content: req.body.content ,excerpt: req.body.excerpt, updatedAt: new Date()}, function  (err, numberAffected) {
       res.send({updated: numberAffected});
     });
 
