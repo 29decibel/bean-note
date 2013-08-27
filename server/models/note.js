@@ -20,6 +20,15 @@ noteSchema = new Schema({
 // enable full text searh
 noteSchema.plugin(textSearch);
 
+noteSchema.pre('save', function (next) {
+  var note = this;
+
+  // update the updatedAt
+  note.set('updatedAt', new Date() );
+  next();
+  // if (!note.isModified('content')) return next();
+})
+
 // build index
 noteSchema.index({
   content:"text"

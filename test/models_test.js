@@ -1,6 +1,7 @@
 var chai = require('chai'),
     assert = chai.assert,
-    Note = require('../server/models/note');
+    Note = require('../server/models/note'),
+    EncryptText = require('../server/models/encrypt_text');
 
 require('./setup');
 
@@ -69,6 +70,22 @@ describe('Note', function() {
         }
       });
     };
+
+  });
+
+  it('can save encrypt information into encrypt text', function(done) {
+    var secretContent = "<div>i am a good boy</div>",
+        key = 'mike';
+
+    EncryptText.create(key, secretContent, function(err, doc){
+      assert.equal(doc.get('content').indexOf('good boy'), -1);
+
+      // now get the real content
+      EncryptText.getContent(doc._id, key, function(err, content){
+        assert.equal(secretContent, content);
+        done();
+      });
+    });
 
   });
 

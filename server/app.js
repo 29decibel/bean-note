@@ -3,6 +3,7 @@ var express = require('express'),
     configs = require('../config/application')[env],
     app = express(),
     Note = require('./models/note'),
+    EncryptText = require('./models/encrypt_text'),
     routes = require('./routes'),
     port = process.env.PORT || 3000;
 
@@ -26,6 +27,24 @@ app.get('/notes/search', function (req, res) {
   Note.search(req.query.search, function (notes) {
     res.send(notes);
   })
+});
+
+
+// create encrypt text block
+app.post('/encrypt_texts', function (req, res) {
+  EncryptText.create(req.body.key, req.body.content, function(err, encryptText){
+    res.send(encryptText);
+  });
+});
+
+app.post('/encrypt_text/decrypt_content', function(req, res) {
+  if (req.body.key == null ) {
+    res.send({error: "please provide the key to encrypt"});
+  } else {
+    EncryptText.getContent(req.body.id, req.body.key, function(err, content){
+      res.send(err || {content: content});
+    });
+  }
 });
 
 // create routes

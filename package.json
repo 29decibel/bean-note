@@ -28,6 +28,7 @@
     "request": "~2.27.0",
     "express": "~3.3.5",
     "cheerio": "~0.12.1",
-    "mongoose-text-search": "0.0.2"
+    "mongoose-text-search": "0.0.2",
+    "bcrypt": "~0.7.6"
   }
 }
