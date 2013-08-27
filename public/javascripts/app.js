@@ -68,8 +68,8 @@ window.e = editor;
  *  });
  */
 
-  // register blur event
-  editor.on('blur', function () {
+  // register value change event
+  editor.on('change', function () {
     updateNote();
   });
 
