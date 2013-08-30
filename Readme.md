@@ -1,6 +1,6 @@
 ## Personal Note Service
 
-BeanNote is a opensource note application. Now it contains a backend service which persisting note content into mongodb,
+BeanNote is a opensource note application. Now it contains a backend RESTful service which persisting note content into mongodb(will support any storage in the future),
 but it really designed for adapting any persisten storage(including Dropbox).
 
 ---
@@ -18,6 +18,4 @@ do not like.
 * supporting Dropbox sync
 * supporting MarkDown format/editor
 * offline access
-
-## Features List
-* Chrome plugin
+* Chrome plugin to clip any article to bean note
