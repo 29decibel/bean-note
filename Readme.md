@@ -20,6 +20,23 @@ do not like.
 * offline access
 * Chrome plugin to clip any article to bean note
 
+## Run On Heroku
+```
+# cd to your repo, then create a app
+$ heroku create
+
+# add mongodb plugin, choose one is ok
+$ heroku addons:add mongolab
+$ heroku addons:add mongohq
+
+# push
+$ git push heroku master
+
+# the default authentication is **username: bean, password:note**
+# you can change that by whatever you want using heroku config
+$ heroku config:set USERNAME=mike PASSWORD=123
+
+```
 
 ## Thanks To Awesome Projects
 * [Node.js](http://nodejs.org/)
