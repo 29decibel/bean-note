@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="description" content="simple and elegant note app, which is yours, which will never shut down">
     <title>Bean Note -- Your note app which will never shut down</title>
-
     <script src="./javascripts/lib/angular.min.js" ></script>
     <script src="./javascripts/lib/wysihtml5-0.3.0.js" ></script>
     <script src="./javascripts/advanced.js" ></script>
@@ -27,7 +26,7 @@
           {{ note.excerpt }}<a href='#' class='icon-button delete-note' ng-click="deleteNote(note)"><i class='icon-trash'></i></a>
         </li>
       </ul>
-      <div class='search'><input type='input'></input></div>
+      <div class='search'><input type='input' ng-model="searchText" ng-keyup="searchNote($event)"></input></div>
     </div>
 
 

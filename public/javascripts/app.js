@@ -48,30 +48,19 @@ var app = angular.module('app',[]);
 app.controller("Main", function ($scope, $q, $http) {
   var editor = new wysihtml5.Editor("wysihtml5-editor", {
         toolbar:     "wysihtml5-editor-toolbar",
-        stylesheets: ["http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css", "stylesheets/editor.css"],
+        stylesheets: ["stylesheets/reset-min.css", "stylesheets/editor.css"],
         parserRules: wysihtml5ParserRules
       }),
       currentNote = null,
       updateTimer = null;
 
-window.e = editor;
-
   $scope.notes = [];
-
-/*
- *  editor.on('change', function () {
- *    if (updateTimer !== null) {
- *      clearTimeout(updateTimer);
- *      updateTimer = setTimeout(updateNote, 3000);
- *    }
- *
- *  });
- */
 
   // register value change event
   editor.on('change', function () {
     updateNote();
   });
+
 
   function updateNote () {
     if (currentNote) {
@@ -168,12 +157,20 @@ window.e = editor;
     composer.selection.selectNode(pre);
   }
 
+  function searchNote (text, callback) {
+    $http.get("/notes/search?search=" + text).success( function (data) {
+      callback(data);
+    });
+  }
+
   $scope.encryptSelectionText = encryptSelectionText;
 
 
+  var allNotes ;
   // load all notes
   $http.get("/notes").success( function (data) {
     $scope.notes = data;
+    allNotes = data;
     activeNote(data[0]);
   });
 
@@ -188,6 +185,22 @@ window.e = editor;
   $scope.deleteNote = function (note) {
     if (confirm("are your sure want to delete this note?\n" + note.excerpt) === true) {
       deleteNote(note);
+    }
+  };
+
+
+  $scope.searchNote = function (event) {
+    if ($scope.searchText === "" || $scope.searchText === null || typeof $scope.searchText === "undefined") {
+      $scope.notes = allNotes;
+    } else {
+
+      searchNote($scope.searchText, function (data) {
+        if (data.length === 0) {
+          $scope.notes = [];
+        } else {
+          $scope.notes = data.map(function(n){ return n.obj; });
+        }
+      });
     }
   };
 
