@@ -33,14 +33,13 @@ noteSchema.index({
 Note = mongoose.model('Note', noteSchema);
 
 Note.search = function (searchText, callback) {
-  // do the search
-  Note.textSearch(searchText.toString(), function (err, output) {
-    if (err) {
-      throw err;
-    } else {
-      callback(output.results);
-    }
-  });
+  if (typeof searchText === "undefined" || searchText === null || searchText === "") {
+    callback(null, []);
+  } else {
+    Note.textSearch(searchText.toString(), function (err, output) {
+      callback(err, output.results);
+    });
+  }
 };
 
 

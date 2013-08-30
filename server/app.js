@@ -26,8 +26,12 @@ app.configure(function(){
 
 // notes search
 app.get('/notes/search', function (req, res) {
-  Note.search(req.query.search, function (notes) {
-    res.send(notes);
+  Note.search(req.query.search, function (err, notes) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(notes);
+    }
   })
 });
 

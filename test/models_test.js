@@ -61,7 +61,7 @@ describe('Note', function() {
         ready += 1;
         if (ready === 3) {
           // do the search
-          Note.search(contents[1], function (notes) {
+          Note.search(contents[1], function (err, notes) {
             assert.equal(notes.length, 1);
             assert.equal(notes[0].obj.content, contents[1]);
 
