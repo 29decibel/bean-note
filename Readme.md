@@ -1,21 +1,23 @@
-## Simple and beautiful note taking app
+## Personal Note Service
 
-* Why another note app?
-Catch is down, a lot of services down recently. I want to build something which will never went down.
-People can build their own one using this.
+BeanNote is a opensource note application. Now it contains a backend service which persisting note content into mongodb,
+but it really designed for adapting any persisten storage(including Dropbox).
+
+---
+
+![bean-note screenshot](http://i.imgur.com/txfnGSK.jpg)
 
 
-* Why 'bean note'?
-My comming child's nick name is 'little bean', so I want to build something for him/her.
+## Why another note app?
+Catch is down, a lot of services down recently. I want to have something always be there. And allow people to change the part they
+do not like.
 
 
-catch is down, really tired of seeing this kind of thing.
-that's why I want to build another open source notes service
-
-* better api
-* simple interface
-* open standard notes format
-* offline support
+## TODO
+* supporting SQL storage
+* supporting Dropbox sync
+* supporting MarkDown format/editor
+* offline access
 
 ## Features List
 * Chrome plugin

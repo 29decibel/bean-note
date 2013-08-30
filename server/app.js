@@ -5,7 +5,9 @@ var express = require('express'),
     Note = require('./models/note'),
     EncryptText = require('./models/encrypt_text'),
     routes = require('./routes'),
-    port = process.env.PORT || 3000;
+    port = process.env.PORT || 3000,
+    username = process.env.USERNAME || configs['username'],
+    password = process.env.PASSWORD || configs['password'];
 
 // set up the connection
 require('../initializers/mongodb_connection');
@@ -15,8 +17,8 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.cookieParser());
 
-  // basic auth for now
-  app.use(express.basicAuth(configs['username'], configs['password']));
+  // basic auth
+  app.use(express.basicAuth(username, password));
 
   // static public folder
   app.use(express.static('public'))
@@ -47,7 +49,7 @@ app.post('/encrypt_text/decrypt_content', function(req, res) {
   }
 });
 
-// create routes
+// create resourcful routes for notes
 routes.resources(app, 'notes');
 
 // the root path
