@@ -19,3 +19,10 @@ do not like.
 * supporting MarkDown format/editor
 * offline access
 * Chrome plugin to clip any article to bean note
+
+
+## Thanks To Awesome Projects
+* [Node.js](http://nodejs.org/)
+* [Express](http://expressjs.com/)
+* [AngularJS](http://angularjs.org/)
+* [wysihtml5](http://xing.github.io/wysihtml5/)
