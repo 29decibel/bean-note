@@ -25,9 +25,8 @@ do not like.
 # cd to your repo, then create a app
 $ heroku create
 
-# add mongodb plugin, choose one is ok
+# add mongodb plugin
 $ heroku addons:add mongolab
-$ heroku addons:add mongohq
 
 # push
 $ git push heroku master
