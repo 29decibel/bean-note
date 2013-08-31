@@ -1,16 +1,11 @@
 ## Personal Note Service
 
-BeanNote is an open source note application. Now it contains a backend RESTful service which persisting note content into mongodb,
+BeanNote is an self hosted note application. Now it contains a backend RESTful service which persisting note content into mongodb,
 but it really designed for adapting any persisten storage(including Dropbox).
 
 ---
 
-![bean-note screenshot](http://i.imgur.com/txfnGSK.jpg)
-
-
-## Why another note app?
-Catch is down, a lot of services down recently. I want to have something always be there. And allow people to change the part they
-do not like.
+![bean-note screenshot](public/images/bean-note.jpg)
 
 
 ## TODO
