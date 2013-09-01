@@ -171,7 +171,11 @@ app.controller("Main", function ($scope, $q, $http) {
   $http.get("/notes").success( function (data) {
     $scope.notes = data;
     allNotes = data;
-    activeNote(data[0]);
+    if (data.length === 0) {
+      createNote();
+    } else {
+      activeNote(data[0]);
+    }
   });
 
   $scope.chooseNote = function (note) {
