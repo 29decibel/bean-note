@@ -37,3 +37,23 @@ $ heroku config:set USERNAME=mike PASSWORD=123
 * [Express](http://expressjs.com/)
 * [AngularJS](http://angularjs.org/)
 * [wysihtml5](http://xing.github.io/wysihtml5/)
+
+
+## Docker
+```
+# vagrant
+vagrant up
+
+# if the vagrant folder not mounted properly then do this:
+sudo /etc/init.d/vboxadd setup
+vagrant reload
+
+# after that we can create the docker image
+sudo docker build -t bean-note .
+
+# create a data directory to persist our data
+mkdir /home/vagrant/mongodb-data
+
+# finally run the container
+sudo docker run -v /home/vagrant/mongodb-data:/var/lib/mongodb -d bean-note
+```
